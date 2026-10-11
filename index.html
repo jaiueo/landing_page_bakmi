@@ -36,6 +36,12 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            transition: filter 0.3s ease;
+        }
+
+        body.tanggal-tua-mode {
+            filter: grayscale(30%);
+            background-color: #F0F0F0;
         }
 
         header {
@@ -74,7 +80,7 @@
         nav {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 18px;
         }
 
         nav a {
@@ -87,6 +93,17 @@
 
         nav a:hover {
             color: var(--primary-color);
+        }
+
+        .toggle-mode-btn {
+            background: #E2E8F0;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            font-family: inherit;
         }
 
         .cart-nav-btn {
@@ -202,6 +219,38 @@
             font-size: 14px;
             color: var(--text-muted);
             margin-top: 5px;
+        }
+
+        .customizer-card {
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #E2E8F0;
+        }
+
+        .customizer-options {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 6px;
+            font-size: 13px;
+        }
+
+        .custom-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px dashed #CCC;
+            margin-top: 10px;
         }
 
         .card-container {
@@ -379,6 +428,102 @@
             background-color: rgba(255, 255, 255, 0.15);
         }
 
+        .testimonial-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto 40px;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .rating {
+            color: #FFC107;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .review-text {
+            font-size: 13px;
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .user-info strong {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        .user-info span {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .add-testimonial-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .add-testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+        }
+
+        .add-testimonial-card h3 {
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+
+        .add-testimonial-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 15px;
+        }
+
+        .rating-select {
+            padding: 10px 12px;
+            border: 1px solid #CCC;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 13px;
+            outline: none;
+            background: white;
+        }
+
         .contact-section {
             background-color: #FFF;
         }
@@ -425,7 +570,7 @@
             font-weight: 500;
         }
 
-        .form-group input, .form-group textarea {
+        .form-group input, .form-group textarea, .form-group select {
             padding: 10px 12px;
             border: 1px solid #CCC;
             border-radius: 6px;
@@ -452,6 +597,59 @@
 
         .submit-btn:hover {
             background-color: var(--primary-hover);
+        }
+
+        .tracker-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 300;
+        }
+
+        .tracker-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .tracker-steps {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 25px;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.4;
+            transition: opacity 0.3s;
+        }
+
+        .step.active {
+            opacity: 1;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .step-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #FFF0F0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
         }
 
         .cart-overlay {
@@ -547,14 +745,31 @@
             padding-top: 8px; border-top: 1px dashed #CCC;
         }
 
+        .calorie-box {
+            background: #FFF3BF;
+            color: #D9480F;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
         .checkout-btn {
             width: 100%; background-color: var(--primary-color);
             color: white; border: none; padding: 12px;
             border-radius: 6px; font-size: 13px; font-weight: 500;
-            cursor: pointer; margin-top: 12px; transition: background 0.2s;
+            cursor: pointer; margin-top: 10px; transition: background 0.2s;
         }
 
         .checkout-btn:hover { background-color: var(--primary-hover); }
+
+        .pay-for-me-btn {
+            width: 100%; background-color: #25D366;
+            color: white; border: none; padding: 10px;
+            border-radius: 6px; font-size: 12px; font-weight: 500;
+            cursor: pointer; margin-top: 6px;
+        }
 
         footer {
             background-color: var(--text-dark);
@@ -615,10 +830,12 @@
         </div>
         <nav>
             <a href="#home">Beranda</a>
+            <a href="#customizer">Racik Bakmi</a>
             <a href="#rekomendasi">Rekomendasi</a>
             <a href="#full-menu">Menu Lengkap</a>
-            <a href="#kontak">Kontak & Lokasi</a>
-            
+            <a href="#testimoni">Testimoni</a>
+            <a href="#kontak">Kontak</a>
+            <button class="toggle-mode-btn" onclick="toggleTanggalTua()">📅 Mode Tanggal Tua</button>
             <button class="cart-nav-btn" onclick="toggleCart()">
                 🛒 Keranjang <span class="cart-badge" id="cart-count">0</span>
             </button>
@@ -631,7 +848,7 @@
             <h3>Keranjang Saya</h3>
             <button class="close-cart-btn" onclick="toggleCart()">&times;</button>
         </div>
-        
+
         <div class="cart-items-wrapper" id="cart-items-container">
             <p class="cart-empty-text">Keranjang belanjaanmu masih kosong.</p>
         </div>
@@ -645,7 +862,13 @@
                 <span>Total Bayar</span>
                 <span id="summary-total" style="color: var(--primary-color);">Rp 0</span>
             </div>
+            
+            <div class="calorie-box" id="calorie-info">
+                🔥 Kalori: 0 kcal (Setara 0x push-up)
+            </div>
+
             <button class="checkout-btn" onclick="handleCheckout()">Lanjut Pembayaran</button>
+            <button class="pay-for-me-btn" onclick="handlePayForMe()">💌 Minta Dibelikan (Kode Keras WA)</button>
         </div>
     </div>
 
@@ -657,6 +880,52 @@
             <a href="#full-menu" class="btn-hero">Pesan Sekarang</a>
         </div>
     </div>
+
+    <section id="customizer" style="background-color: #FFF;">
+        <div class="section-title">
+            <h2>🍜 Racik Bakmi Impianmu</h2>
+            <p>Sesuaikan jenis mi, topping, dan tingkat kepedasan sesuai selera khas kamu</p>
+        </div>
+
+        <div class="customizer-card">
+            <div class="customizer-options">
+                <div class="form-group">
+                    <label>1. Pilih Jenis Mi</label>
+                    <select id="c-type" onchange="calculateCustomPrice()">
+                        <option value="Mi Halus Khas GM" data-price="20000">Mi Halus Khas GM (Rp 20.000)</option>
+                        <option value="Mi Lebar Mantap" data-price="21000">Mi Lebar Mantap (Rp 21.000)</option>
+                        <option value="Mi Kriting Telur" data-price="22000">Mi Kriting Telur (Rp 22.000)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>2. Level Kepedasan</label>
+                    <select id="c-spicy" onchange="checkSpicyInsurance(this)">
+                        <option value="Level 0 (Original)">Level 0 - Original Gurih</option>
+                        <option value="Level 1 (Sedang)">Level 1 - Pedas Manis</option>
+                        <option value="Level 2 (Pedas Chili Oil)">Level 2 - Pedas Chili Oil</option>
+                        <option value="Level 3 (Ekstra Nampol)">Level 3 - Ekstra Nampol 🔥</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>3. Tambah Topping Spesial</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="Ayam Jamur" data-price="8000" onchange="calculateCustomPrice()" checked> Ayam Jamur (+Rp 8.000)</label>
+                        <label><input type="checkbox" value="Pangsit Goreng (2 Pcs)" data-price="7000" onchange="calculateCustomPrice()"> Pangsit Goreng (+Rp 7.000)</label>
+                        <label><input type="checkbox" value="Bakso Sapi (2 Pcs)" data-price="8000" onchange="calculateCustomPrice()"> Bakso Sapi (+Rp 8.000)</label>
+                    </div>
+                </div>
+
+                <div class="custom-summary">
+                    <span>Total Racikan:</span>
+                    <strong id="custom-total-price" style="color: var(--primary-color); font-size: 18px;">Rp 28.000</strong>
+                </div>
+
+                <button class="submit-btn" onclick="addCustomNoodleToCart()">+ Masukkan Racikan ke Keranjang</button>
+            </div>
+        </div>
+    </section>
 
     <section id="rekomendasi">
         <div class="section-title">
@@ -713,40 +982,28 @@
             <button class="filter-btn" onclick="filterMenu('drink', this)">Minuman</button>
         </div>
 
-        <div class="card-container">
-            <div class="card menu-card" data-category="bakmi">
-                <span class="badge badge-favorite">#FAVORITE</span>
-                <img src="https://awsimages.detik.net.id/community/media/visual/2022/03/03/ini-5-bakmi-ayam-halal-kekinian-di-jakarta-yang-terkenal-enak-4.png?w=1328" alt="Mikamie Chick">
-                <h4>Mikamie Chick</h4>
-                <p class="desc">Bakmi dengan topping ayam cincang dan jamur saus gurih khas Mikamie.</p>
+        <div class="card-container" id="menu-cards-container">
+            <div class="card menu-card" data-category="drink" data-price="10000">
+                <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc" alt="Es Teh Manis">
+                <h4>Es Teh Manis Spesial</h4>
+                <p class="desc">Teh pilihan diseduh segar setiap hari, pas menemani hidangan bakmi.</p>
                 <div class="card-footer">
-                    <span class="price">Rp 35.000</span>
-                    <button class="order-btn" onclick="addToCart('Mikamie Chick', 35000, 'https://awsimages.detik.net.id/community/media/visual/2022/03/03/ini-5-bakmi-ayam-halal-kekinian-di-jakarta-yang-terkenal-enak-4.png?w=1328')">Pesan</button>
+                    <span class="price">Rp 10.000</span>
+                    <button class="order-btn" onclick="addToCart('Es Teh Manis Spesial', 10000, 'https://images.unsplash.com/photo-1556679343-c7306c1976bc')">Pesan</button>
                 </div>
             </div>
 
-            <div class="card menu-card" data-category="bakmi">
-                <span class="badge badge-favorite">#FAVORITE</span>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGui7uo8f3Bz-WI-IYSYXqP6ZRoxbbVNd8VPXcsaCfyUqzV_KcOgabY3Y&s=10" alt="Mikamie Special Pangsit">
-                <h4>Mikamie Special Pangsit</h4>
-                <p class="desc">Bakmi khas dengan topping ayam jamur dan 2 pangsit goreng renyah.</p>
+            <div class="card menu-card" data-category="side" data-price="22000">
+                <img src="https://images.unsplash.com/photo-1541696432-82c6da8ce7bf" alt="Bakso Kuah">
+                <h4>Bakso Sapi Kuah (4 Pcs)</h4>
+                <p class="desc">Bakso sapi kenyal gurih disajikan hangat dengan kuah kaldu sapi bening beraroma bawang.</p>
                 <div class="card-footer">
-                    <span class="price">Rp 42.000</span>
-                    <button class="order-btn" onclick="addToCart('Mikamie Special Pangsit', 42000, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGui7uo8f3Bz-WI-IYSYXqP6ZRoxbbVNd8VPXcsaCfyUqzV_KcOgabY3Y&s=10')">Pesan</button>
+                    <span class="price">Rp 22.000</span>
+                    <button class="order-btn" onclick="addToCart('Bakso Sapi Kuah (4 Pcs)', 22000, 'https://images.unsplash.com/photo-1541696432-82c6da8ce7bf')">Pesan</button>
                 </div>
             </div>
 
-            <div class="card menu-card" data-category="bakmi">
-                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624" alt="Bakmi Chili Oil">
-                <h4>Bakmi Chili Oil Pedas</h4>
-                <p class="desc">Bakmi dengan paduan chili oil pedas gurih khas pedalaman Xie dengan topping ayam empuk.</p>
-                <div class="card-footer">
-                    <span class="price">Rp 38.000</span>
-                    <button class="order-btn" onclick="addToCart('Bakmi Chili Oil Pedas', 38000, 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624')">Pesan</button>
-                </div>
-            </div>
-
-            <div class="card menu-card" data-category="side">
+            <div class="card menu-card" data-category="side" data-price="28000">
                 <span class="badge badge-new">#NEW</span>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9F1RC5oHcdY_B_6hzhTzzDn-bmSeyaiffUNaXhsY61R-WK34D1A4b8LQ&s=10" alt="Pangsit Goreng">
                 <h4>Pangsit Goreng (5 Pcs)</h4>
@@ -757,23 +1014,35 @@
                 </div>
             </div>
 
-            <div class="card menu-card" data-category="side">
-                <img src="https://images.unsplash.com/photo-1541696432-82c6da8ce7bf" alt="Bakso Kuah">
-                <h4>Bakso Sapi Kuah (4 Pcs)</h4>
-                <p class="desc">Bakso sapi kenyal gurih disajikan hangat dengan kuah kaldu sapi bening beraroma bawang.</p>
+            <div class="card menu-card" data-category="bakmi" data-price="35000">
+                <span class="badge badge-favorite">#FAVORITE</span>
+                <img src="https://awsimages.detik.net.id/community/media/visual/2022/03/03/ini-5-bakmi-ayam-halal-kekinian-di-jakarta-yang-terkenal-enak-4.png?w=1328" alt="Mikamie Chick">
+                <h4>Mikamie Chick</h4>
+                <p class="desc">Bakmi dengan topping ayam cincang dan jamur saus gurih khas Mikamie.</p>
                 <div class="card-footer">
-                    <span class="price">Rp 22.000</span>
-                    <button class="order-btn" onclick="addToCart('Bakso Sapi Kuah (4 Pcs)', 22000, 'https://images.unsplash.com/photo-1541696432-82c6da8ce7bf')">Pesan</button>
+                    <span class="price">Rp 35.000</span>
+                    <button class="order-btn" onclick="addToCart('Mikamie Chick', 35000, 'https://awsimages.detik.net.id/community/media/visual/2022/03/03/ini-5-bakmi-ayam-halal-kekinian-di-jakarta-yang-terkenal-enak-4.png?w=1328')">Pesan</button>
                 </div>
             </div>
 
-            <div class="card menu-card" data-category="drink">
-                <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc" alt="Es Teh Manis">
-                <h4>Es Teh Manis Spesial</h4>
-                <p class="desc">Teh pilihan diseduh segar setiap hari, pas menemani hidangan bakmi.</p>
+            <div class="card menu-card" data-category="bakmi" data-price="38000">
+                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624" alt="Bakmi Chili Oil">
+                <h4>Bakmi Chili Oil Pedas</h4>
+                <p class="desc">Bakmi dengan paduan chili oil pedas gurih khas pedalaman Xie dengan topping ayam empuk.</p>
                 <div class="card-footer">
-                    <span class="price">Rp 10.000</span>
-                    <button class="order-btn" onclick="addToCart('Es Teh Manis Spesial', 10000, 'https://images.unsplash.com/photo-1556679343-c7306c1976bc')">Pesan</button>
+                    <span class="price">Rp 38.000</span>
+                    <button class="order-btn" onclick="addToCart('Bakmi Chili Oil Pedas', 38000, 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624')">Pesan</button>
+                </div>
+            </div>
+
+            <div class="card menu-card" data-category="bakmi" data-price="42000">
+                <span class="badge badge-favorite">#FAVORITE</span>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGui7uo8f3Bz-WI-IYSYXqP6ZRoxbbVNd8VPXcsaCfyUqzV_KcOgabY3Y&s=10" alt="Mikamie Special Pangsit">
+                <h4>Mikamie Special Pangsit</h4>
+                <p class="desc">Bakmi khas dengan topping ayam jamur dan 2 pangsit goreng renyah.</p>
+                <div class="card-footer">
+                    <span class="price">Rp 42.000</span>
+                    <button class="order-btn" onclick="addToCart('Mikamie Special Pangsit', 42000, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGui7uo8f3Bz-WI-IYSYXqP6ZRoxbbVNd8VPXcsaCfyUqzV_KcOgabY3Y&s=10')">Pesan</button>
                 </div>
             </div>
         </div>
@@ -785,7 +1054,79 @@
             <p>Pesan Mikamie favoritmu sekarang juga dan nikmati kehangatan resep autentik langsung dari rumah!</p>
             <div class="cta-buttons">
                 <a href="#full-menu" class="cta-btn primary">Pesan Online Sekarang</a>
-                <a href="https://wa.me/6282219082009" target="_blank" class="cta-btn secondary">Hubungi via WhatsApp</a>
+                <a href="https://wa.me/6281298765432" target="_blank" class="cta-btn secondary">Hubungi via WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimoni" style="background-color: #F4F5F7;">
+        <div class="section-title">
+            <h2>Apa Kata Merekamie?</h2>
+            <p>Ulasan jujur dari para pecinta bakmi yang sudah menikmati sajian Mikamie</p>
+        </div>
+
+        <div class="testimonial-container">
+            <div class="testimonial-card">
+                <div class="rating">★★★★★</div>
+                <p class="review-text">"Tekstur mi kenyalnya pas banget, topping ayam jamurnya gurih melimpah. Pangsit gorengnya juara renyah! Wajib balik lagi ke sini."</p>
+                <div class="user-info">
+                    <strong>Budi Santoso</strong>
+                    <span>Pencinta Bakmi Bandung</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="rating">★★★★★</div>
+                <p class="review-text">"Pesan via online sampai rumah masih hangat dan mi-nya nggak menggumpal. Kuah kaldunya berasa banget resep autentiknya!"</p>
+                <div class="user-info">
+                    <strong>Siti Rahmawati</strong>
+                    <span>Pelanggan Setia</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="rating">★★★★★</div>
+                <p class="review-text">"Tempatnya bersih, pelayanan cepat, dan Paket Hemat Rame-Rame worth it banget buat makan bareng teman kantor."</p>
+                <div class="user-info">
+                    <strong>Rian Firmansyah</strong>
+                    <span>Food Vlogger</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="add-testimonial-wrapper">
+            <div class="add-testimonial-card">
+                <h3>Tuliskan Testimoni Anda</h3>
+                <p>Punya pengalaman berkesan saat menikmati Mikamie? Bagikan ulasan Anda di sini!</p>
+                
+                <form onsubmit="handleAddTestimonial(event)" class="testimonial-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="t-name">Nama Lengkap</label>
+                            <input type="text" id="t-name" required placeholder="Contoh: Ahmad">
+                        </div>
+                        <div class="form-group">
+                            <label for="t-role">Status / Pekerjaan (Opsional)</label>
+                            <input type="text" id="t-role" placeholder="Contoh: Mahasiswa / Penikmat Kuliner">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Rating Anda</label>
+                        <select id="t-rating" required class="rating-select">
+                            <option value="★★★★★">★★★★★ (5/5 - Sangat Puas)</option>
+                            <option value="★★★★☆">★★★★☆ (4/5 - Bagus)</option>
+                            <option value="★★★☆☆">★★★☆☆ (3/5 - Cukup)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="t-message">Ulasan / Testimoni</label>
+                        <textarea id="t-message" required placeholder="Tuliskan ulasan Anda mengenai rasa, pelayanan, atau tempat..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" style="align-self: flex-start; padding: 10px 24px;">Kirim Testimoni</button>
+                </form>
             </div>
         </div>
     </section>
@@ -801,7 +1142,7 @@
                 <h3>Lokasi Outlet Utama</h3>
                 <p><strong>Alamat:</strong> Jl. Garuda No. 88, Kec. Andir, Kota Bandung, Jawa Barat 40184</p>
                 <p><strong>Jam Operasional:</strong> Senin - Minggu (10:00 - 21:30 WIB)</p>
-                <p><strong>Telepon / WhatsApp:</strong> +62 822-1908-2009</p>
+                <p><strong>Telepon / WhatsApp:</strong> +62 812-9876-5432</p>
                 <p><strong>Email Customer Care:</strong> halo@mikamie.id</p>
                 <br>
                 <p><em>Sertifikasi Halal ID3211000012345678</em></p>
@@ -826,6 +1167,31 @@
         </div>
     </section>
 
+    <div id="tracker-modal" class="tracker-overlay">
+        <div class="tracker-card">
+            <h3>🚀 Status Pesanan Dapur Mikamie</h3>
+            <p id="tracker-order-id" style="font-size: 13px; color: var(--primary-color); font-weight: 600; margin-top: 4px;">ID Pesanan: #MK-88219</p>
+
+            <div class="tracker-steps">
+                <div class="step active" id="step-1">
+                    <div class="step-icon">📝</div>
+                    <span>Diterima</span>
+                </div>
+                <div class="step" id="step-2">
+                    <div class="step-icon">🍳</div>
+                    <span>Dimasak</span>
+                </div>
+                <div class="step" id="step-3">
+                    <div class="step-icon">🛵</div>
+                    <span>Diantar</span>
+                </div>
+            </div>
+
+            <p id="tracker-status-text" style="font-size: 13px; color: var(--text-muted); margin-top: 20px;">Koki sedang menyiapkan adonan mi segar untukmu...</p>
+            <button class="submit-btn" style="margin-top: 20px;" onclick="closeTracker()">Tutup Tracker</button>
+        </div>
+    </div>
+
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
@@ -837,6 +1203,7 @@
                 <h4>Navigasi Halaman</h4>
                 <ul>
                     <li><a href="#home">Beranda Promo</a></li>
+                    <li><a href="#customizer">Racik Bakmi</a></li>
                     <li><a href="#rekomendasi">Menu Rekomendasi</a></li>
                     <li><a href="#full-menu">Daftar Menu Lengkap</a></li>
                     <li><a href="#kontak">Lokasi Outlet</a></li>
@@ -870,6 +1237,7 @@
 
     <script>
         let cart = [];
+        let isTanggalTua = false;
 
         function formatRupiah(number) {
             return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(number);
@@ -932,6 +1300,10 @@
             summaryItems.innerText = `${totalCount} porsi`;
             summaryTotal.innerText = formatRupiah(totalPrice);
 
+            const estCalories = totalCount * 450;
+            const pushUpsNeeded = Math.round((estCalories / 100) * 12);
+            document.getElementById('calorie-info').innerText = `🔥 ~${estCalories} kcal (Setara ${pushUpsNeeded}x push-up!)`;
+
             if (cart.length === 0) {
                 container.innerHTML = '<p class="cart-empty-text">Keranjang belanjaanmu masih kosong.</p>';
                 return;
@@ -954,6 +1326,41 @@
             `).join('');
         }
 
+        function calculateCustomPrice() {
+            const typeSelect = document.getElementById('c-type');
+            const basePrice = parseInt(typeSelect.options[typeSelect.selectedIndex].getAttribute('data-price'));
+            
+            let toppingTotal = 0;
+            const checkboxes = document.querySelectorAll('.checkbox-group input[type="checkbox"]:checked');
+            checkboxes.forEach(cb => {
+                toppingTotal += parseInt(cb.getAttribute('data-price'));
+            });
+
+            const grandTotal = basePrice + toppingTotal;
+            document.getElementById('custom-total-price').innerText = formatRupiah(grandTotal);
+        }
+
+        function checkSpicyInsurance(selectElement) {
+            if (selectElement.value.includes('Ekstra Nampol')) {
+                const isAgreed = confirm("⚠️ PERINGATAN ASURANSI PEDAS ⚠️\n\nLevel 3 menggunakan racikan Chili Oil murni ekstra pedas. Mikamie tidak bertanggung jawab atas bibir dower atau keringat dingin berlebih.\n\nApakah lidah Anda yakin siap?");
+                if (!isAgreed) {
+                    selectElement.value = 'Level 1 (Sedang)';
+                }
+            }
+        }
+
+        function addCustomNoodleToCart() {
+            const type = document.getElementById('c-type').value;
+            const spicy = document.getElementById('c-spicy').value;
+            
+            const title = `Bakmi Custom (${type} - ${spicy})`;
+            const priceText = document.getElementById('custom-total-price').innerText;
+            const price = parseInt(priceText.replace(/[^0-9]/g, ''));
+            
+            addToCart(title, price, 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624');
+            alert('Racikan Bakmi Impianmu berhasil masuk ke keranjang!');
+        }
+
         function handleCheckout() {
             if (cart.length === 0) {
                 alert('Keranjang belanjaanmu masih kosong!');
@@ -963,11 +1370,101 @@
             const confirmPay = confirm(`Total Pembayaran: ${formatRupiah(totalPrice)}\nLanjutkan pembayaran pesanan?`);
             
             if (confirmPay) {
-                alert(`Pembayaran sebesar ${formatRupiah(totalPrice)} berhasil diproses!\nPesanan Mikamie kamu sedang disiapkan.`);
                 cart = [];
                 updateCartUI();
                 toggleCart();
+                startOrderTracker();
             }
+        }
+
+        function handlePayForMe() {
+            if (cart.length === 0) {
+                alert('Pilih menu dulu sebelum minta dibelikan!');
+                return;
+            }
+
+            const itemList = cart.map(i => `- ${i.title} (${i.qty}x)`).join('\n');
+            const totalPrice = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+            const message = `Halo! Bakmi Mikamie ini sangat memanggil namaku 🍜✨\n\nRincian Pesanan:\n${itemList}\n\nTotal: ${formatRupiah(totalPrice)}\nTolong bayarkan ya, terima kasih banyak! ❤️`;
+            
+            const waUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+            window.open(waUrl, '_blank');
+        }
+
+        function toggleTanggalTua() {
+            isTanggalTua = !isTanggalTua;
+            document.body.classList.toggle('tanggal-tua-mode');
+            
+            const btn = document.querySelector('.toggle-mode-btn');
+            const container = document.getElementById('menu-cards-container');
+            const cards = Array.from(container.children);
+
+            if (isTanggalTua) {
+                btn.innerText = "✨ Mode Normal";
+                alert("Mode Tanggal Tua Aktif: Menu otomatis diurutkan dari yang paling murah. Tetap semangat, akhir bulan sebentar lagi!");
+                cards.sort((a, b) => parseInt(a.getAttribute('data-price')) - parseInt(b.getAttribute('data-price')));
+            } else {
+                btn.innerText = "📅 Mode Tanggal Tua";
+                cards.sort((a, b) => parseInt(b.getAttribute('data-price')) - parseInt(a.getAttribute('data-price')));
+            }
+
+            cards.forEach(card => container.appendChild(card));
+        }
+
+        function startOrderTracker() {
+            const modal = document.getElementById('tracker-modal');
+            modal.style.display = 'flex';
+
+            const step1 = document.getElementById('step-1');
+            const step2 = document.getElementById('step-2');
+            const step3 = document.getElementById('step-3');
+            const statusText = document.getElementById('tracker-status-text');
+
+            step1.classList.add('active');
+            step2.classList.remove('active');
+            step3.classList.remove('active');
+            statusText.innerText = 'Pesanan diterima dapur Mikamie...';
+
+            setTimeout(() => {
+                step2.classList.add('active');
+                statusText.innerText = 'Koki sedang meracik & memasak mi segar pesananmu! 🍳';
+            }, 3000);
+
+            setTimeout(() => {
+                step3.classList.add('active');
+                statusText.innerText = 'Pesanan selesai & siap diantar langsung ke mejamu/rumah! 🛵';
+            }, 6000);
+        }
+
+        function closeTracker() {
+            document.getElementById('tracker-modal').style.display = 'none';
+        }
+
+        function handleAddTestimonial(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('t-name').value;
+            const role = document.getElementById('t-role').value || 'Pelanggan Mikamie';
+            const rating = document.getElementById('t-rating').value;
+            const message = document.getElementById('t-message').value;
+
+            const container = document.querySelector('.testimonial-container');
+
+            const newCard = document.createElement('div');
+            newCard.className = 'testimonial-card';
+            newCard.innerHTML = `
+                <div class="rating">${rating}</div>
+                <p class="review-text">"${message}"</p>
+                <div class="user-info">
+                    <strong>${name}</strong>
+                    <span>${role}</span>
+                </div>
+            `;
+
+            container.appendChild(newCard);
+
+            alert('Terima kasih! Testimoni Anda berhasil ditambahkan.');
+            event.target.reset();
         }
 
         function filterMenu(category, btnElement) {
