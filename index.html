@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mikamie - Semangkuk Kehangatan Autentik</title>
+    <title>Mibakmie - Semangkuk Kehangatan Autentik</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -39,6 +39,14 @@
             transition: filter 0.3s ease;
         }
 
+        @media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 10px 15px;
+    }}
+
         img {
     max-width: 100%;
     height: auto;
@@ -62,7 +70,6 @@
         }
 
         @media screen and (max-width: 768px) {
-    /* 1. Ubah Header / Navbar menjadi bertumpuk (atas-bawah) */
     header {
         flex-direction: column;
         gap: 12px;
@@ -97,6 +104,13 @@
         right: -100%;
     }
 }
+.logo {
+    display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+}
+
 
         .logo a {
             display: flex;
@@ -119,10 +133,17 @@
             letter-spacing: 0.5px;
         }
 
+        .nav-container {
+        width: 100%;
+        padding-bottom: 4px;
+    }
+
         nav {
             display: flex;
             align-items: center;
             gap: 18px;
+            justify-content: flex-start;
+        gap: 10px;
         }
 
         nav a {
@@ -135,6 +156,11 @@
 
         nav a:hover {
             color: var(--primary-color);
+        }
+
+        nav a, .toggle-mode-btn, .cart-nav-btn {
+        font-size: 12px;
+        padding: 5px 10px;
         }
 
         .toggle-mode-btn {
@@ -864,25 +890,28 @@
 <body>
 
     <header>
-        <div class="logo">
-            <a href="#">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToKL_xk5vIKLTp5ujvZRjpte8rgCwrRixf_N-8zHB4kNUcYqVyohsKvXI&s=10" alt="Mikamie Logo" class="logo-img">
-                <h3><i>Mikamie</i></h3>
-            </a>
-        </div>
+    <div class="logo">
+        <a href="#">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToKL_xk5vIKLTp5ujvZRjpte8rgCwrRixf_N-8zHB4kNUcYqVyohsKvXI&s=10" alt="Mikamie Logo" class="logo-img">
+            <h3><i>Mikamie</i></h3>
+        </a>
+    </div>
+
+    <div class="nav-container">
         <nav>
             <a href="#home">Beranda</a>
-            <a href="#customizer">Racik Bakmi</a>
+            <a href="#customizer">Racik</a>
             <a href="#rekomendasi">Rekomendasi</a>
-            <a href="#full-menu">Menu Lengkap</a>
+            <a href="#full-menu">Menu</a>
             <a href="#testimoni">Testimoni</a>
             <a href="#kontak">Kontak</a>
-            <button class="toggle-mode-btn" onclick="toggleTanggalTua()">📅 Mode Tanggal Tua</button>
+            <button class="toggle-mode-btn" onclick="toggleTanggalTua()">📅 Tanggal Tua</button>
             <button class="cart-nav-btn" onclick="toggleCart()">
-                🛒 Keranjang <span class="cart-badge" id="cart-count">0</span>
+                🛒 <span class="cart-badge" id="cart-count">0</span>
             </button>
         </nav>
-    </header>
+    </div>
+</header>
 
     <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
     <div class="cart-drawer" id="cart-drawer">
