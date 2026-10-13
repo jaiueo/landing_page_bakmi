@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         :root {
             --primary-color: #B22222;
@@ -39,6 +39,11 @@
             transition: filter 0.3s ease;
         }
 
+        img {
+    max-width: 100%;
+    height: auto;
+}
+
         body.tanggal-tua-mode {
             filter: grayscale(30%);
             background-color: #F0F0F0;
@@ -55,6 +60,43 @@
             top: 0;
             z-index: 100;
         }
+
+        @media screen and (max-width: 768px) {
+    /* 1. Ubah Header / Navbar menjadi bertumpuk (atas-bawah) */
+    header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 20px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 24px;
+    }
+
+    .hero-banner {
+        min-height: 320px;
+        padding: 40px 15px;
+    }
+
+    section {
+        padding: 40px 5%;
+    }
+
+    .contact-wrapper, .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-drawer {
+        width: 100%;
+        right: -100%;
+    }
+}
 
         .logo a {
             display: flex;
@@ -1054,7 +1096,7 @@
             <p>Pesan Mikamie favoritmu sekarang juga dan nikmati kehangatan resep autentik langsung dari rumah!</p>
             <div class="cta-buttons">
                 <a href="#full-menu" class="cta-btn primary">Pesan Online Sekarang</a>
-                <a href="https://wa.me/6281298765432" target="_blank" class="cta-btn secondary">Hubungi via WhatsApp</a>
+                <a href="https://wa.me/6282219082009" target="_blank" class="cta-btn secondary">Hubungi via WhatsApp</a>
             </div>
         </div>
     </section>
